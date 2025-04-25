@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { signInWithGooglePopup } from "../../utils/firebase.utils";
-import {
-  createUserDocumentFromAuth,
-  signInAuthUserWithEmailandPassword,
-} from "../../utils/firebase.utils";
+import { signInAuthUserWithEmailandPassword } from "../../utils/firebase.utils";
+
 import FormInput from "../form-input/form-input.component";
 import "./sign-in.styles.scss"; // Import the CSS file for styling
 import Button from "../button/button.component";
@@ -24,9 +22,7 @@ const SignInForm = () => {
   const signInWithGoogle = async () => {
     try {
       console.log("Google Sign-In triggered"); // Debugging log
-      const { user } = await signInWithGooglePopup();
-      console.log("Google User:", user); // Debugging log
-      await createUserDocumentFromAuth(user);
+      await signInWithGooglePopup();
     } catch (error) {
       console.error("Error during Google Sign-In:", error);
     }
@@ -35,10 +31,8 @@ const SignInForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await signInAuthUserWithEmailandPassword(
-        email,
-        password
-      );
+      const user = await signInAuthUserWithEmailandPassword(email, password);
+      // Update the current user in context
       // Debugging log
       resetFormFields(); // Reset the form fields after successful sign-in
     } catch (error) {

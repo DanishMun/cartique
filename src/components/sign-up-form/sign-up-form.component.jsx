@@ -3,6 +3,7 @@ import {
   createAuthUserWithEmailandPassword,
   createUserDocumentFromAuth,
 } from "../../utils/firebase.utils";
+
 import FormInput from "../form-input/form-input.component";
 import "./sign-up.styles.scss"; // Import the CSS file for styling
 import Button from "../button/button.component";
@@ -13,6 +14,7 @@ const SignUpForm = () => {
     password: "",
     confirmPassword: "",
   };
+
   const resetFormFields = () => {
     setFormFields(defaultFormFields); // Reset the form fields to their default values
   };
@@ -29,6 +31,7 @@ const SignUpForm = () => {
         email,
         password
       );
+
       await createUserDocumentFromAuth(user, { displayName });
       resetFormFields(); // Reset the form fields after successful
       console.log(user);
