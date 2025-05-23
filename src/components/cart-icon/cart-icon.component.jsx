@@ -1,5 +1,5 @@
-import { ReactComponent as ShoppingIcon } from "../../assets/shopping-bag.svg";
-import "./cart-icon.styles.scss";
+import { CartIconContainer, ItemCount, ShopingIcon } from "./cart-icon.styles";
+
 import { useContext } from "react";
 import { CartContext } from "../../contexts/cart.context"; // Import the CartContext
 // This component represents the cart icon in the navigation bar. It uses the ShoppingIcon SVG and displays the number of items in the cart.
@@ -11,10 +11,10 @@ const CartIconComponent = () => {
 
   const toggleCartOpen = () => setIsCartOpen(!isCartOpen); // Toggle the cart state
   return (
-    <div className="cart-icon-container" onClick={toggleCartOpen}>
-      <ShoppingIcon className="shopping-icon" />
-      <span className="item-count">{cartCount}</span>
-    </div>
+    <CartIconContainer onClick={toggleCartOpen}>
+      <ShopingIcon />
+      <ItemCount>{cartCount}</ItemCount>
+    </CartIconContainer>
   );
 };
 
