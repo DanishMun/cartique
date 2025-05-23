@@ -7,7 +7,7 @@ import Button from "../button/button.component";
 import { CartContext } from "../../contexts/cart.context";
 import { useContext } from "react";
 import CartItem from "../cart-item/cart-item.component"; // Import the CartItem component
-import { Form, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { buttonTypeClasses } from "../button/button.component";
 // Import the useNavigate hook for navigation
 // This component represents the dropdown menu that appears when the cart icon is clicked. It displays the items in the cart and a button to proceed to checkout.
